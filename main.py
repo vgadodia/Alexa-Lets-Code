@@ -1,5 +1,5 @@
 #TEXT = "function square arguments n new line print n * n new line back tab new line call square arguments 4"
-
+import git
 import sys
 from PyQt5.Qt import QApplication
 from PyQt5 import QtCore, QtWidgets
@@ -29,3 +29,10 @@ submit.clicked.connect(write)
 w.show()
 sys.exit(appctxt.exec_())
 
+"""
+g = git.cmd.Git("C:/Users/Nand/Alexa-Lets-Code")
+
+g.add(".")
+g.commit("-m \"init\"")
+g.push()
+"""

@@ -77,8 +77,3 @@ def get_python_code(TEXT):
 
     toParse = "\n".join([x for x in lines if x != ""])
     return toParse
-import git
-g = git.cmd.Git("C:/Users/Nand/Alexa-Lets-Code")
-g.add(".")
-g.commit("-m \"init\"")
-g.push()
