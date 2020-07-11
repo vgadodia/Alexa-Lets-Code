@@ -10,9 +10,8 @@ from convert import get_python_code
 
 appctxt = QApplication([])
 w = QWidget()  
-w.setWindowTitle("Alex Lets Code")
-w.resize(512, 512)
- 
+w.setWindowTitle("Alexa Lets Code")
+w.resize(512, 512) 
 
 title = QPlainTextEdit(w)
 title.setPlaceholderText("Enter raw text")
@@ -29,3 +28,4 @@ submit.move(5, 50)
 submit.clicked.connect(write)
 w.show()
 sys.exit(appctxt.exec_())
+

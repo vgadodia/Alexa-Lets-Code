@@ -1,3 +1,4 @@
+import os
 
 def get_python_code(TEXT):
     lines = [x.strip() for x in TEXT.split("new line")]
@@ -43,21 +44,21 @@ def get_python_code(TEXT):
         elif words[0] == "if" and (words[2] == "equals" or words[2] == "=") and words[3] == "string":
             words[2] = "=="
             lines[i] = " ".join(words[:3]) + " '" + ' '.join(words[4:]) + "'" + ":"
-            addTab +=1
+            
 
         elif words[0] == "if" and (words[2] == "equals" or words[2] == "="):
             words[2] = "=="
             lines[i] = " ".join(words) + ":"
-            addTab +=1
+            
         elif words[0] == "for" and words[3] == "range":
             lines[i] = " ".join(words[:4]) + "(" + ' '.join(words[4:]) + ")" + ":"
-            addTab += 1
+            
         elif words[0] == "for":
             lines[i] = " ".join(words) + ":"
-            addTab += 1
+            
         elif words[0] == "function" and len(words) == 2:
             lines[i] = "def " + words[1] +  "()" + ":"
-            addTab += 1
+            
         elif words[0] == "function" and len(words) > 2:
             lines[i] = "def " + words[1] +  "("
             for j in range(3, len(words)):
@@ -77,3 +78,7 @@ def get_python_code(TEXT):
     toParse = "\n".join([x for x in lines if x != ""])
     return toParse
 
+def git_add():
+    os.system('cmd /k "git add ."')
+
+git_add()
