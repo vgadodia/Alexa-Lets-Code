@@ -81,4 +81,13 @@ def get_python_code(TEXT):
 def git_add():
     os.system('cmd /k "git add ."')
 
+def git_commit():
+    os.system('cmd /k "git commit"')
+
+def git_push():
+    os.system('cmd /k "git push"')
+
+print("helo")
 git_add()
+git_commit()
+git_push()
