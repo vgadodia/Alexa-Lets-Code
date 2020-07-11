@@ -77,17 +77,8 @@ def get_python_code(TEXT):
 
     toParse = "\n".join([x for x in lines if x != ""])
     return toParse
-
-def git_add():
-    os.system('cmd /k "git add ."')
-
-def git_commit():
-    os.system('cmd /k "git commit"')
-
-def git_push():
-    os.system('cmd /k "git push"')
-
-print("helo")
-git_add()
-git_commit()
-git_push()
+import git
+g = git.cmd.Git("C:/Users/Nand/Alexa-Lets-Code")
+g.add(".")
+g.commit("-m \"init\"")
+g.push()
