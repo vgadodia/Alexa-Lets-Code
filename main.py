@@ -7,23 +7,41 @@ from PyQt5.QtWidgets import QMainWindow, QWidget, QPlainTextEdit, QLabel, QPushB
 from PyQt5.QtCore import QSize
 import keyboard
 from convert import get_python_code
+import speech_recognition as sr 
+import pyttsx3  
+
+r = sr.Recognizer()  
+def SpeakText(command): 
+    engine = pyttsx3.init() 
+    engine.say(command)  
+    engine.runAndWait() 
 
 appctxt = QApplication([])
 w = QWidget()  
 w.setWindowTitle("Alexa Lets Code")
 w.resize(512, 512) 
 
-title = QPlainTextEdit(w)
-title.setPlaceholderText("Enter raw text")
-title.move(5, 5)
-title.resize(502, 40)
-
 def write():
-    k = get_python_code(title.toPlainText())
-    keyboard.wait('\n')
-    keyboard.write(k)
-
-submit = QPushButton("submit", w)
+    
+    while(1):     
+        try: 
+            with sr.Microphone() as source2: 
+                r.adjust_for_ambient_noise(source2, duration=0.2) 
+                audio2 = r.listen(source2) 
+                MyText = r.recognize_google(audio2) 
+                MyText = MyText.lower() 
+  
+                print(MyText)
+                keyboard.write(get_python_code(MyText))
+            
+              
+        except sr.RequestError as e: 
+            print("Could not request results; {0}".format(e)) 
+             
+        except sr.UnknownValueError: 
+            continue
+    
+submit = QPushButton("start", w)
 submit.move(5, 50)
 submit.clicked.connect(write)
 w.show()
