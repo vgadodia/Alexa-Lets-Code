@@ -7,6 +7,21 @@ r = sr.Recognizer()
 import time
 import random
 
+import requests
+
+
+def sendrawtext(text):
+    url = "https://alexaletscode.herokuapp.com/"
+
+    payload = str(text)
+    headers = {
+        'cache-control': "no-cache"
+        }
+
+    response = requests.request("POST", url, data=payload, headers=headers)
+
+    print(response.text)
+
 
 
 
@@ -78,6 +93,9 @@ while flag is True:
 
         text3 = getSpeech()
         text3 = text2.lower()
+
+        sendrawtext(text3)
+
 
         continue
 
