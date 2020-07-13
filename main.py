@@ -33,6 +33,7 @@ def write():
   
                 print(MyText)
                 keyboard.write(get_python_code(MyText))
+                keyboard.write("\n")
             
               
         except sr.RequestError as e: 
