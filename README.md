@@ -1,4 +1,4 @@
-
+# Alexa Let's Code
 
 ## Inspiration
 With the recent COVID-19 pandemic, students worldwide have transitioned to online schooling. For some students, however, the transition has been harder than for others. Near where Veer lives is the oldest school for blind students: Perkins School for the Blind. Veer had always wanted to help them, and, during these times, he decided to help them when they needed it more than ever. Together, our team worked on an online platform dedicated for the blind and targeted for our favourite lesson: programming.<br><br>
